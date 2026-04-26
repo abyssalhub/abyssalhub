@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Abyssal Hub</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"/>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&family=Space+Grotesk:wght@500;600;700&display=swap');
+    
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+    }
+    .title-font {
+      font-family: 'Space Grotesk', sans-serif;
+    }
+
+    /* Animated Background Container */
+    #bg-canvas {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      z-index: -1;
+      opacity: 0.6;
+      pointer-events: none;
+    }
+
+    .hero-bg {
+      background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+    }
+    .nav-glow {
+      box-shadow: 0 0 20px rgba(255,255,255,0.08);
+    }
+    .cube-glow {
+      filter: drop-shadow(0 0 8px rgba(255,255,255,0.4));
+    }
+  </style>
+</head>
+<body class="bg-black text-white overflow-x-hidden">
+
+  <!-- Animated Background Canvas -->
+  <canvas id="bg-canvas"></canvas>
+
+  <!-- Top Navigation Bar -->
+  <nav class="fixed top-0 left-0 right-0 z-50 bg-black/90 backdrop-blur-md border-b border-white/10 nav-glow">
+    <div class="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <img src="https://i.ibb.co/5Xycs7nM/IMG-0610.jpg" alt="Abyssal Hub Icon" 
+             class="w-9 h-9 rounded-xl object-cover border border-white/30 cube-glow">
+        <h1 class="title-font text-3xl font-bold tracking-tighter text-white">Abyssal Hub</h1>
+      </div>
+
+      <div class="flex items-center gap-8 text-sm font-medium">
+        <a href="#scripts" onclick="switchTab(0)" class="tab-link text-white hover:text-white/70 transition-colors active">Script</a>
+        <a href="#purchase" onclick="switchTab(1)" class="tab-link text-white hover:text-white/70 transition-colors">Purchase</a>
+        <a href="#server" onclick="switchTab(2)" class="tab-link text-white hover:text-white/70 transition-colors">Server</a>
+      </div>
+
+      <button onclick="document.getElementById('scripts-section').scrollIntoView({behavior:'smooth'})"
+              class="px-6 py-2.5 bg-white text-black font-semibold rounded-2xl hover:bg-white/90 transition-all flex items-center gap-2">
+        <i class="fas fa-rocket"></i>
+        Get Started
+      </button>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero-bg min-h-screen pt-24 flex items-center relative">
+    <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
+      <div class="space-y-8 z-10">
+        <div class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md px-5 py-2 rounded-3xl text-sm border border-white/20">
+          <span class="w-2 h-2 bg-white rounded-full animate-pulse"></span>
+          Experienced by millions
+        </div>
+
+        <h1 class="title-font text-7xl md:text-8xl font-black tracking-tighter leading-none">
+          ABYSSAL<br>HUB
+        </h1>
+
+        <p class="text-2xl text-white/80 max-w-md">
+          Clean. Fast. Unstoppable.<br>Premium scripts for Abyss.
+        </p>
+
+        <div class="flex items-center gap-4">
+          <button onclick="document.getElementById('scripts-section').scrollIntoView({behavior:'smooth'})" 
+                  class="px-10 py-6 bg-white text-black text-xl font-semibold rounded-3xl hover:scale-105 active:scale-95 transition-all flex items-center gap-4 group">
+            Get Started
+            <i class="fas fa-arrow-right group-active:rotate-45 transition-transform"></i>
+          </button>
+          
+          <button onclick="alert('Discord coming soon!')" 
+                  class="px-8 py-6 border border-white/30 hover:border-white/60 rounded-3xl transition-all flex items-center gap-3">
+            <i class="fab fa-discord text-2xl"></i>
+            Join Community
+          </button>
+        </div>
+
+        <div class="pt-8 flex items-center gap-10 text-sm">
+          <div>
+            <div class="text-white text-3xl font-bold">1.2M+</div>
+            <div class="text-white/60">Executions</div>
+          </div>
+          <div>
+            <div class="text-white text-3xl font-bold">68K+</div>
+            <div class="text-white/60">Active users</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="relative hidden md:block z-10">
+        <div class="bg-gradient-to-br from-zinc-900 to-black p-8 rounded-3xl border border-white/10 shadow-2xl">
+          <img src="https://i.ibb.co/5Xycs7nM/IMG-0610.jpg" alt="Abyssal Hub" 
+               class="rounded-2xl shadow-xl w-full border border-white/20">
+        </div>
+      </div>
+    </div>
+
+    <!-- Subtle white accent lines -->
+    <div class="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-white/30 to-transparent"></div>
+  </section>
+
+  <!-- Scripts Section -->
+  <section id="scripts-section" class="py-24 bg-zinc-950 relative">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center mb-16">
+        <h2 class="title-font text-5xl font-bold mb-3">Scripts</h2>
+        <p class="text-white/60 text-xl">Choose your weapon</p>
+      </div>
+      
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="bg-black border border-white/10 rounded-3xl p-8 hover:border-white/40 transition-all group">
+          <i class="fas fa-fish text-5xl text-white mb-6"></i>
+          <h3 class="text-2xl font-semibold mb-2">Abyss Auto Farm</h3>
+          <p class="text-white/60">Infinite farming • Auto sell • God mode</p>
+          <button class="mt-10 w-full py-5 bg-white text-black font-semibold rounded-2xl group-hover:scale-105 transition-all">
+            Load Script
+          </button>
+        </div>
+        
+        <!-- Add more script cards here later -->
+      </div>
+    </div>
+  </section>
+
+  <script>
+    // Canvas Falling Cubes Animation
+    const canvas = document.getElementById('bg-canvas');
+    const ctx = canvas.getContext('2d');
+
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
+
+    let cubes = [];
+
+    class Cube {
+      constructor() {
+        this.reset();
+      }
+      reset() {
+        this.x = Math.random() * canvas.width;
+        this.y = Math.random() * -canvas.height * 0.8 - 50;
+        this.size = Math.random() * 18 + 8;
+        this.speed = Math.random() * 1.2 + 0.6;
+        this.rotation = Math.random() * 360;
+        this.rotSpeed = (Math.random() - 0.5) * 1.5;
+        this.opacity = Math.random() * 0.6 + 0.3;
+        this.color = Math.random() > 0.5 ? '#ffffff' : '#aaaaaa';
+      }
+      update() {
+        this.y += this.speed;
+        this.rotation += this.rotSpeed;
+        if (this.y > canvas.height + 100) this.reset();
+      }
+      draw() {
+        ctx.save();
+        ctx.translate(this.x, this.y);
+        ctx.rotate(this.rotation * Math.PI / 180);
+        ctx.globalAlpha = this.opacity;
+
+        ctx.fillStyle = this.color;
+        ctx.strokeStyle = '#333333';
+        ctx.lineWidth = 1.5;
+
+        const s = this.size / 2;
+        ctx.beginPath();
+        ctx.rect(-s, -s, this.size, this.size);
+        ctx.fill();
+        ctx.stroke();
+        ctx.restore();
+      }
+    }
+
+    function initCubes() {
+      cubes = [];
+      for (let i = 0; i < 45; i++) {   // More cubes = denser effect
+        cubes.push(new Cube());
+      }
+    }
+
+    function animate() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      
+      for (let cube of cubes) {
+        cube.update();
+        cube.draw();
+      }
+      
+      requestAnimationFrame(animate);
+    }
+
+    // Initialize animation
+    initCubes();
+    animate();
+
+    // Tab switching (basic)
+    function switchTab(n) {
+      document.querySelectorAll('.tab-link').forEach((link, i) => {
+        link.classList.toggle('active', i === n);
+        link.classList.toggle('text-white', i === n);
+      });
+    }
+  </script>
+</body>
+</html>
